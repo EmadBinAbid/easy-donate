@@ -1,0 +1,25 @@
+<div class="main-div container-fluid">
+  <div class="row">
+    <div class="col-md-1">
+      <img src="../../../assets/img/logo.png" class="img-responsive">
+    </div>
+
+    <div class="col-md-2">
+      <h1>{{ title }}</h1>
+    </div>
+
+    <div class="col-md-8">
+      Better DONATE than WASTE
+    </div>
+
+    <div class="col-md-1">
+      <div class="login-div" *ngIf="loginStatus">
+        <a href="#">Logout</a>
+      </div>
+      <div class="login-div" *ngIf="!loginStatus">
+        <a href="#">Login</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
