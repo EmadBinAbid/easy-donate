@@ -1,20 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EasyDonateFooterComponent } from './components/easy-donate-footer/easy-donate-footer.component';
 import { EasyDonateHeaderComponent } from './components/easy-donate-header/easy-donate-header.component';
+import { EasyDonateLandingPageComponent } from './components/easy-donate-landing-page/easy-donate-landing-page.component';
+import { EasyDonateLoginComponent } from './components/easy-donate-login/easy-donate-login.component';
+import { EasyDonateRegisterComponent } from './components/easy-donate-register/easy-donate-register.component';
+
+const appRoutes: Routes = [
+  { path: '', component: EasyDonateLandingPageComponent, children: [
+    { path: 'login/register', redirectTo: 'register', pathMatch: 'full'},
+    { path: 'register/login', redirectTo: 'login', pathMatch: 'full'},
+    { path: 'login', component: EasyDonateLoginComponent},
+    { path: 'register', component: EasyDonateRegisterComponent}
+    
+  ]}
+  
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     EasyDonateFooterComponent,
-    EasyDonateHeaderComponent
+    EasyDonateHeaderComponent,
+    EasyDonateLandingPageComponent,
+    EasyDonateLoginComponent,
+    EasyDonateRegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
