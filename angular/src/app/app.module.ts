@@ -9,6 +9,7 @@ import { EasyDonateHeaderComponent } from './components/easy-donate-header/easy-
 import { EasyDonateLandingPageComponent } from './components/easy-donate-landing-page/easy-donate-landing-page.component';
 import { EasyDonateLoginComponent } from './components/easy-donate-login/easy-donate-login.component';
 import { EasyDonateRegisterComponent } from './components/easy-donate-register/easy-donate-register.component';
+import { EasyDonateAppComponent } from './components/easy-donate-app/easy-donate-app.component';
 
 const appRoutes: Routes = [
   { path: '', component: EasyDonateLandingPageComponent, children: [
@@ -16,8 +17,8 @@ const appRoutes: Routes = [
     { path: 'register/login', redirectTo: 'login', pathMatch: 'full'},
     { path: 'login', component: EasyDonateLoginComponent},
     { path: 'register', component: EasyDonateRegisterComponent}
-    
-  ]}
+  ]},
+  { path: 'app', component: EasyDonateAppComponent }
   
 ];
 
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     EasyDonateHeaderComponent,
     EasyDonateLandingPageComponent,
     EasyDonateLoginComponent,
-    EasyDonateRegisterComponent
+    EasyDonateRegisterComponent,
+    EasyDonateAppComponent
   ],
   imports: [
     BrowserModule,
