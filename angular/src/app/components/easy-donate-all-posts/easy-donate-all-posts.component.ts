@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../services/PostService/post.service';
+import { GetUserPosts } from '../../interfaces/get-user-posts';
 
 @Component({
   selector: 'ed-easy-donate-all-posts',
@@ -7,27 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EasyDonateAllPostsComponent implements OnInit {
 
-  
+  postMessagesObject: Object;
 
-  postMessagesList: Array<any> =  
-  [
-    {
-      message: "I want to donate a set of clothes. Is there anyone knows any needy person?",
-      type: "cloth"
-    },
-    {
-      message: "Blood group B+ needed at Agha Khan Hospital, Karachi. For details, kindly contact.",
-      type: "blood"
-    },
-    {
-      message: "Hello, food packets required for iftaar dastarkhuan in Jauhar. Kindly participate.",
-      type: "food"
-    }
-  ];
-
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.postMessagesObject = this.postService.getPostsObject();
   }
 
 }

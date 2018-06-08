@@ -16,6 +16,7 @@ import { EasyDonateHomeComponent } from './components/easy-donate-home/easy-dona
 import { RouteService } from './services/RouteService/route.service';
 import { EasyDonateMyPostComponent } from './components/easy-donate-my-post/easy-donate-my-post.component';
 import { EasyDonateAllPostsComponent } from './components/easy-donate-all-posts/easy-donate-all-posts.component';
+import { PostService } from './services/PostService/post.service';
 
 const appRoutes: Routes = [
   { path: '', component: EasyDonateLandingPageComponent, children: [
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [RouteService],
+  providers: [RouteService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
