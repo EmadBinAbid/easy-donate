@@ -1,10 +1,11 @@
 .main-div
 {
     margin: 0px;
-    padding: 15px 15px 0px 15px;
-    //background: url(../assets/img/background.jpg);
-    background-color: #ff3300;
+    padding: 8px 15px 0px 15px;
+    background-color: #0066ff;
     color: white;
+    border-radius: 0px;
+    font-size: 13px;
 }
 
 h3
@@ -15,8 +16,8 @@ h3
 
 img
 {
-    width: 110px;
-    height: 60px;
+    width: 80px;
+    height: 40px;
 }
 
 .login-div
@@ -27,4 +28,28 @@ img
 a
 {
     color: white;
+}
+
+.menu-div
+{
+    background-color: #cce0ff;
+    position: fixed;
+}
+
+.menu
+{
+    background-color: #0066ff;
+    position: fixed;
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0.1; }
+    to   { opacity: 1; }
+}
+
+.menu-div a
+{
+    margin-left: 10px;
+    margin-bottom: 10px;
 }

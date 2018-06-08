@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouteService } from '../../services/RouteService/route.service';
 
 @Component({
   selector: 'ed-easy-donate-app',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EasyDonateAppComponent implements OnInit {
 
-  constructor() { }
+  //For RouteService
+  isOnHomePage: boolean = true;
+  
+
+  constructor(private routeService: RouteService) { }
 
   ngOnInit() {
+    this.routeService.$onHomePage.subscribe((value) => {
+      this.isOnHomePage = value;
+    });
   }
 
 }

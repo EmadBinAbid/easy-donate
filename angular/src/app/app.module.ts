@@ -10,6 +10,11 @@ import { EasyDonateLandingPageComponent } from './components/easy-donate-landing
 import { EasyDonateLoginComponent } from './components/easy-donate-login/easy-donate-login.component';
 import { EasyDonateRegisterComponent } from './components/easy-donate-register/easy-donate-register.component';
 import { EasyDonateAppComponent } from './components/easy-donate-app/easy-donate-app.component';
+import { EasyDonateProfileComponent } from './components/easy-donate-profile/easy-donate-profile.component';
+import { EasyDonateHomeComponent } from './components/easy-donate-home/easy-donate-home.component';
+
+import { RouteService } from './services/RouteService/route.service';
+import { EasyDonateMyPostComponent } from './components/easy-donate-my-post/easy-donate-my-post.component';
 
 const appRoutes: Routes = [
   { path: '', component: EasyDonateLandingPageComponent, children: [
@@ -30,14 +35,17 @@ const appRoutes: Routes = [
     EasyDonateLandingPageComponent,
     EasyDonateLoginComponent,
     EasyDonateRegisterComponent,
-    EasyDonateAppComponent
+    EasyDonateAppComponent,
+    EasyDonateProfileComponent,
+    EasyDonateHomeComponent,
+    EasyDonateMyPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [RouteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

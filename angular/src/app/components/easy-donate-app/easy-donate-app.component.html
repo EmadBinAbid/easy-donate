@@ -1,5 +1,9 @@
 <ed-easy-donate-header></ed-easy-donate-header>
 
-<div class="container-fluid main-div">
-    asgsdgsdh
+<div class="container-fluid main-div" *ngIf="isOnHomePage">
+    <ed-easy-donate-home></ed-easy-donate-home>
+</div>
+
+<div class="container-fluid main-div" *ngIf="!isOnHomePage">
+    <ed-easy-donate-profile></ed-easy-donate-profile>
 </div>

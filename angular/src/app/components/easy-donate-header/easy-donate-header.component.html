@@ -1,29 +1,55 @@
-<div class="main-div container-fluid">
+<div class="container-fluid main-div">
   <div class="row">
     <div class="col-md-1">
       <img src="../../../assets/img/logo.png" class="img-responsive">
     </div>
 
-    <div class="col-md-2">
-      <h3>{{ title }}</h3>
-    </div>
-
-    <div class="col-md-7">
-      
-    </div>
-
-    <div class="col-md-1 login-div" *ngIf="!loginStatus">
-      <a href="#"><i class="fa fa-registered"></i> Register</a>
+    <div class="col-md-3">
+      <div class="form-group">
+          <input class="form-control" placeholder="Search" style="width: 450px; height: 25px; margin-top: 5px;">
+      </div>
     </div>
 
     <div class="col-md-1">
-      <div class="login-div" *ngIf="loginStatus">
-        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
-      </div>
-      <div class="login-div" *ngIf="!loginStatus">
-        <a href="#"><i class="fa fa-sign-in"></i> Login</a>
+      
+    </div>
+
+    <div class="col-md-1">
+        <a><i class="fa fa-search fa-2x" style="margin-top: 3px;"></i></a>
+    </div>
+
+    <div class="col-md-3">
+      
+    </div>
+
+    <div class="col-md-1 login-div">
+      <a (click)="setOnHomePage(false)"><i class="fa fa-user"></i> Profile</a>
+    </div>
+
+    <div class="col-md-1 login-div">
+      <a (click)="setOnHomePage(true)"><i class="fa fa-home"></i> Home</a>
+    </div>
+
+    <div class="col-md-1 login-div">
+      <a (click)="menuStatus()"><i class="fa fa-bars"></i></a>
+    </div>
+  </div>
+
+  <div class="menu-div" *ngIf="isMenu">
+    <div class="row">
+      <div class="col-md-11"></div>
+      <div class="col-md-1 menu">
+        <a>Donations</a>
+        <a>Logout</a>
+        <a>Donations</a>
+        <a>Logout</a>
+        <a>Donations</a>
+        <a>Logout</a>
       </div>
     </div>
     
   </div>
+    
 </div>
+
+<router-outlet></router-outlet>
