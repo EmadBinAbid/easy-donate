@@ -1,0 +1,38 @@
+<div class="container">
+  <h1 style="margin-top: 80px;">All posts</h1>
+  
+  
+  <div class="all-posts-div">
+    
+    <div class="row" *ngFor="let message of postMessagesList; let i=index;">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-1">
+        <h3>{{ i+1 }}</h3>
+      </div>
+      <div class="col-md-8 all-posts">
+        <div class="post-text">
+          {{ message.message }}
+        </div>
+
+        
+
+        <div class="post-button">
+            
+          <i class="fa fa-medkit fa-2x" style="color: red;" title="Blood donation" *ngIf=" message.type === 'blood' "></i>
+          <i class="fa fa-shirtsinbulk fa-2x" style="color: orange;" title="Clothes donation" *ngIf=" message.type === 'cloth' "></i>
+          <i class="fa fa-cutlery fa-2x" style="color: green;" title="Food donation" *ngIf=" message.type === 'food' "></i>
+              
+
+          <i class="like-comment fa fa-envelope" style="color: #0066ff" title="Send direct message"></i>
+          <i class="like-comment fa fa-comment" style="color: #0066ff" title="Comment"></i>
+          <i class="like-comment fa fa-thumbs-up" style="color: #0066ff" title="Like"></i>
+          
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+    
+  </div>
+</div>
