@@ -3,17 +3,29 @@
     padding: 15px;
 }
 
-.posts-div
+.map-div
 {
-    border: 1px solid red;
-}
-
-.my-post-div
-{
-    //border: 1px solid red;
+    background-color: #ffffff;
 }
 
 .separator
 {
     border-left: 1px solid #0066ff;
+}
+
+.all-posts-div
+{
+    margin-bottom: 80px;
+    background-color: #0066ff;
+    border-radius: 5px;
+}
+
+h1
+{
+    color: #0066ff;
+}
+
+.all-posts
+{
+
 }
