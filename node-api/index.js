@@ -16,5 +16,25 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+/*Http Requests*/
+
+//userModel
+userModel.addUser(app);
+userModel.updateUser(app);
+userModel.deleteUser(app);
+userModel.getUser(app);
+
+//postModel
+postModel.addPost(app);
+postModel.updatePost(app);
+postModel.deletePost(app);
+postModel.getPost(app);
+
+//commentModel
+commentModel.addComment(app);
+commentModel.updateComment(app);
+commentModel.deleteComment(app);
+commentModel.getComment(app);
+
 //Running the server
 server.run(app, 3000);
