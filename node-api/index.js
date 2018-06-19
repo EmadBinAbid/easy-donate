@@ -1,6 +1,7 @@
 //Application dependencies
 const server = require('./server');
 const connection = require('./connection.mongoose');
+const login = require('./login.mongoose');
 const userModel = require('./models/user.mongoose');
 const postModel = require('./models/post.mongoose');
 const commentModel = require('./models/comment.mongoose');
@@ -37,7 +38,7 @@ commentModel.deleteComment(app);
 commentModel.getComment(app);
 
 //Validating User and generating JWT if User is valid.
-userModel.validateUser(app, jwt);
+login.validateUser(app, jwt, userModel.UserModel);
 
 //Running the server
 server.run(app, 3000);
