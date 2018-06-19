@@ -36,5 +36,8 @@ commentModel.updateComment(app);
 commentModel.deleteComment(app);
 commentModel.getComment(app);
 
+//Validating User and generating JWT if User is valid.
+userModel.validateUser(app, jwt);
+
 //Running the server
 server.run(app, 3000);
