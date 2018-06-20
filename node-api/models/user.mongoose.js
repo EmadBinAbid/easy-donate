@@ -72,7 +72,7 @@ exports.addUser = function(expressInstance)
                         }
                         else
                         {
-                            res.json(dbObject);
+                            res.json( { "user":dbObject } );
                         }
                     });
                 }
