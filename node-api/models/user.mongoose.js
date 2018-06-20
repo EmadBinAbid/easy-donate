@@ -1,3 +1,8 @@
+/*
+Author: Emad Bin Abid
+Start day: Tuesday, June 19' 2018
+*/
+
 //Dependencies
 const mongoose = require('mongoose');
 
@@ -12,6 +17,11 @@ const userSchema = mongoose.Schema(
             required: true
         },
         lastName: 
+        {
+            type: String,
+            required: true
+        },
+        username:
         {
             type: String,
             required: true
@@ -33,11 +43,45 @@ const UserModel = exports.UserModel = mongoose.model('UserModel', userSchema);
 
 /*Functions to handle Http Requests*/
 
-//addUser
+/*
+method: addUser(expressInstance)
+url: domain/user
+response type: sends a json object of type { "user": object } if it doesn't exist already. Else sends "Unauthorized"
+*/
 exports.addUser = function(expressInstance)
 {
     expressInstance.post('/user', (req, res) => {
-        
+
+        //Checking User already exists.
+        UserModel.findOne( { "username": req.body.username },  (err, dbObjectFind) => 
+        {
+            if(err)
+            {
+                res.status(400).send("Bad request");
+            }
+            else
+            {
+                if(dbObjectFind === null)
+                {
+                    //Adding User if it doesn't exist.
+                    UserModel.create(req.body, (err, dbObject) => 
+                    {
+                        if(err)
+                        {
+                            res.status(400).send("Bad request");
+                        }
+                        else
+                        {
+                            res.json(dbObject);
+                        }
+                    });
+                }
+                else
+                {
+                    res.status(401).send("Unauthorized");
+                }
+            }
+        });
     });
 }
 
@@ -45,7 +89,7 @@ exports.addUser = function(expressInstance)
 exports.updateUser = function(expressInstance)
 {
     expressInstance.put('/user', (req, res) => {
-
+        //Needs implementation
     });
 }
 
@@ -53,14 +97,28 @@ exports.updateUser = function(expressInstance)
 exports.deleteUser = function(expressInstance)
 {
     expressInstance.delete('/user', (req, res) => {
-
+        //Needs implementation
     });
 }
 
-//getUser
+/*
+method: getUser(expressInstance)
+url: domain/user?username
+response type: sends a json object of type { "user": object } if it exists. Else sends { "user": null }
+*/
 exports.getUser = function(expressInstance)
 {
     expressInstance.get('/user', (req, res) => {
-        
+        UserModel.findOne( { "username": req.query.username },  (err, dbObject) => 
+        {
+            if(err)
+            {
+                res.status(400).send("Bad request");
+            }
+            else
+            {
+                res.json( { "user": dbObject } );
+            }
+        });
     });
 }

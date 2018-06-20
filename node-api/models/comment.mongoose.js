@@ -1,3 +1,8 @@
+/*
+Author: Emad Bin Abid
+Start day: Tuesday, June 19' 2018
+*/
+
 //Dependencies
 const mongoose = require('mongoose');
 

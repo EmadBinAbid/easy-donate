@@ -1,3 +1,8 @@
+/*
+Author: Emad Bin Abid
+Start day: Friday, June 15' 2018
+*/
+
 //Application dependencies
 const server = require('./server');
 const connection = require('./connection.mongoose');

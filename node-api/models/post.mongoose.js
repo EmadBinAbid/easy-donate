@@ -1,3 +1,8 @@
+/*
+Author: Emad Bin Abid
+Start day: Tuesday, June 19' 2018
+*/
+
 //Dependencies
 const mongoose = require('mongoose');
 
@@ -24,9 +29,9 @@ const postSchema = mongoose.Schema(
         },
         postLikes:
         {
-            type: Number,
+            type: Array,
             required: true,
-            default: 0
+            default: []
         }
     }
 );
