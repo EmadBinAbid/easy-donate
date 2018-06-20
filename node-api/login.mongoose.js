@@ -6,20 +6,17 @@ Start day: Tuesday, June 19' 2018
 //Dependencies
 
 //Validating User on /login request.
+/*
+method: validateUser(expressInstance, jwtInstance, userModelInstance)
+url: domain/login
+request object: expects a json object of type { "user": object }
+response object: sends a json object of type { "user": object, "token": token }. If error, then sends "Unauthorized"
+*/
 exports.validateUser = function(expressInstance, jwtInstance, userModelInstance)
 {
     //Validating User.
     expressInstance.post('/login', (req, res) => 
     {
-        /*UserModel.findOne() --> 
-        req.body = 
-        {
-            "user": 
-            {
-                "email": "xyz",
-                "password": "xyz"
-            }
-        }*/
         userModelInstance.findOne(req.body.user, (err, dbObject) => 
         {
             if(err)
@@ -34,11 +31,12 @@ exports.validateUser = function(expressInstance, jwtInstance, userModelInstance)
                 }
                 else
                 {
-                    jwtInstance.sign(req.body, 'secretkey', (err, token) => 
+                    const signObject = { "user": dbObject };
+                    jwtInstance.sign(signObject, 'secretkey', (err, token) => 
                     {
                         if(err)
                         {
-
+                            res.status(401).send('Unauthorized');
                         }
                         else
                         {

@@ -31,10 +31,11 @@ userModel.deleteUser(app);
 userModel.getUser(app);
 
 //postModel
-postModel.addPost(app);
-postModel.updatePost(app);
-postModel.deletePost(app);
-postModel.getPost(app);
+postModel.addPost(app, jwt, login.verifyToken);
+postModel.updatePost(app, jwt, login.verifyToken);
+postModel.deletePost(app, jwt, login.verifyToken);
+postModel.getPost(app, jwt, login.verifyToken);
+postModel.getAllPosts(app, jwt, login.verifyToken);
 
 //commentModel
 commentModel.addComment(app);

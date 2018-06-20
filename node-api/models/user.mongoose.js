@@ -57,7 +57,7 @@ exports.addUser = function(expressInstance)
         {
             if(err)
             {
-                res.status(400).send("Bad request");
+                res.status(400).send("Bad Request");
             }
             else
             {
@@ -68,7 +68,7 @@ exports.addUser = function(expressInstance)
                     {
                         if(err)
                         {
-                            res.status(400).send("Bad request");
+                            res.status(400).send("Bad Request");
                         }
                         else
                         {
@@ -113,7 +113,7 @@ exports.getUser = function(expressInstance)
         {
             if(err)
             {
-                res.status(400).send("Bad request");
+                res.status(400).send("Bad Request");
             }
             else
             {
