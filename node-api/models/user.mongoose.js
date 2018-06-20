@@ -122,3 +122,25 @@ exports.getUser = function(expressInstance)
         });
     });
 }
+
+/*
+method: getAllUsers(expressInstance)
+url: domain/user
+response type: sends a json object of type { "user": array_of_objects } if it exists. Else sends "Bad Request"
+*/
+exports.getAllUsers = function(expressInstance)
+{
+    expressInstance.get('/user/all-users', (req, res) => {
+        UserModel.find( (err, dbObject) => 
+        {
+            if(err)
+            {
+                res.status(400).send("Bad Request");
+            }
+            else
+            {
+                res.json( { "user": dbObject } );
+            }
+        });
+    });
+}

@@ -32,6 +32,12 @@ const postSchema = mongoose.Schema(
             type: Array,
             required: true,
             default: []
+        },
+        createdOn:
+        {
+            type: Date,
+            required: true,
+            default: Date.now
         }
     }
 );

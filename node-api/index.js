@@ -29,6 +29,7 @@ userModel.addUser(app);
 userModel.updateUser(app);
 userModel.deleteUser(app);
 userModel.getUser(app);
+userModel.getAllUsers(app);
 
 //postModel
 postModel.addPost(app, jwt, login.verifyToken);
