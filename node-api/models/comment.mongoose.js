@@ -224,3 +224,28 @@ exports.getAllComments = function(expressInstance, jwtInstance, verifyToken)
         });
     });
 }
+
+//getAllCommentsByPostId
+/*
+method: getAllCommentsByPostId(expressInstance)
+url: domain/comment/all-comments-by-post-id?postId
+request object: expects a query string with key = postId
+response object: sends a json object of type { "comment": array_of_objects }. If error, then sends "Unauthorized"
+*/
+exports.getAllCommentsByPostId = function(expressInstance)
+{
+    expressInstance.get('/comment/all-comments-by-post-id', (req, res) => {
+        CommentModel.find( { "postId": req.query.postId }, (err, dbObject) => 
+        {
+            if (err) 
+            {
+                console.log(err);
+                res.status(401).send("Unauthorized");
+            }
+            else 
+            {
+                res.json({ "comment": dbObject });
+            }
+        });
+    });
+}

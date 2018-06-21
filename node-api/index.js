@@ -44,6 +44,7 @@ commentModel.updateComment(app, jwt, login.verifyToken);
 commentModel.deleteComment(app, jwt, login.verifyToken);
 commentModel.getComment(app, jwt, login.verifyToken);
 commentModel.getAllComments(app, jwt, login.verifyToken);
+commentModel.getAllCommentsByPostId(app);
 
 //Validating User and generating JWT if User is valid.
 login.validateUser(app, jwt, userModel.UserModel);
