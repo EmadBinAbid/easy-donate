@@ -90,7 +90,7 @@ exports.addPost = function(expressInstance, jwtInstance, verifyToken)
 
 //updatePost
 /*
-method: getPost(expressInstance, jwtInstance, verifyToken)
+method: updatePost(expressInstance, jwtInstance, verifyToken)
 url: domain/post?postId
 request object: expects a query string with key = postId and a json object of type { post: object }
 response object: sends a json object of type { "post": object }. If error, then sends "Unauthorized"
@@ -125,7 +125,7 @@ exports.updatePost = function(expressInstance, jwtInstance, verifyToken)
 
 //deletePost
 /*
-method: getPost(expressInstance, jwtInstance, verifyToken)
+method: deletePost(expressInstance, jwtInstance, verifyToken)
 url: domain/post?postId
 request object: expects a query string with key = postId
 response object: sends a json object of type { "post": object }. If error, then sends "Unauthorized"

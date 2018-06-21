@@ -39,10 +39,11 @@ postModel.getPost(app, jwt, login.verifyToken);
 postModel.getAllPosts(app, jwt, login.verifyToken);
 
 //commentModel
-commentModel.addComment(app);
-commentModel.updateComment(app);
-commentModel.deleteComment(app);
-commentModel.getComment(app);
+commentModel.addComment(app, jwt, login.verifyToken);
+commentModel.updateComment(app, jwt, login.verifyToken);
+commentModel.deleteComment(app, jwt, login.verifyToken);
+commentModel.getComment(app, jwt, login.verifyToken);
+commentModel.getAllComments(app, jwt, login.verifyToken);
 
 //Validating User and generating JWT if User is valid.
 login.validateUser(app, jwt, userModel.UserModel);
