@@ -15,9 +15,9 @@
       <div style="text-align: center; color: #0066ff; font-size: 20px; border-bottom: 1px solid #0066ff">Login</div>
       <div class="form-group">
         <label class="form-element">Username:</label>
-        <input type="text" class="form-control" placeholder="Username">
+        <input type="text" class="form-control" placeholder="Username" ([ngModel])="username">
         <label class="form-element">Password:</label>
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" placeholder="Password" ([ngModel])="password">
         <button type="submit" class="form-element form-control">Login</button>
         <br><br>
         <div style="text-align: center;">

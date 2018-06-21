@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ed-easy-donate-login',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EasyDonateLoginComponent implements OnInit {
 
+  username: string;
+  password: string;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  loginUser()
+  {
+    
   }
 
 }

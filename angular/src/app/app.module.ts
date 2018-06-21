@@ -17,6 +17,10 @@ import { RouteService } from './services/RouteService/route.service';
 import { EasyDonateMyPostComponent } from './components/easy-donate-my-post/easy-donate-my-post.component';
 import { EasyDonateAllPostsComponent } from './components/easy-donate-all-posts/easy-donate-all-posts.component';
 import { PostService } from './services/PostService/post.service';
+import { LoginService } from './services/LoginService/login.service';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: EasyDonateLandingPageComponent, children: [
@@ -46,9 +50,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    HttpClient
   ],
-  providers: [RouteService, PostService],
+  providers: [RouteService, PostService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
