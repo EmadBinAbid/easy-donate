@@ -3,6 +3,8 @@ Author: Emad Bin Abid
 Start day: Tuesday, June 19' 2018
 */
 
+const config = require('./config');
+
 //Dependencies
 
 //Validating User on /login request.
@@ -32,7 +34,7 @@ exports.validateUser = function(expressInstance, jwtInstance, userModelInstance)
                 else
                 {
                     const signObject = { "user": dbObject };
-                    jwtInstance.sign(signObject, 'secretkey', (err, token) => 
+                    jwtInstance.sign(signObject, config.secret_key, (err, token) => 
                     {
                         if(err)
                         {

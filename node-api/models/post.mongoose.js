@@ -5,6 +5,7 @@ Start day: Tuesday, June 19' 2018
 
 //Dependencies
 const mongoose = require('mongoose');
+const config = require('../config');
 
 //Post Schema
 const postSchema = mongoose.Schema(
@@ -56,7 +57,7 @@ response object: sends a json object of type { "post": object }. If error, then 
 exports.addPost = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.post('/post', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {
@@ -98,7 +99,7 @@ response object: sends a json object of type { "post": object }. If error, then 
 exports.updatePost = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.put('/post', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {
@@ -133,7 +134,7 @@ response object: sends a json object of type { "post": object }. If error, then 
 exports.deletePost = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.delete('/post', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {
@@ -167,7 +168,7 @@ response object: sends a json object of type { "post": object }. If error, then 
 exports.getPost = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.get('/post', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {
@@ -201,7 +202,7 @@ response object: sends a json object of type { "post": array_of_objects }. If er
 exports.getAllPosts = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.get('/post/all-posts', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {

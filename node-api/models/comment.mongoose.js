@@ -5,6 +5,7 @@ Start day: Tuesday, June 19' 2018
 
 //Dependencies
 const mongoose = require('mongoose');
+const config = require('../config');
 
 //Comment Schema
 const commentSchema = mongoose.Schema(
@@ -57,7 +58,7 @@ exports.addComment = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.post('/comment', verifyToken, (req, res) => 
     {
-        jwtInstance.verify(req.token, 'secretkey', ( err, userData ) => 
+        jwtInstance.verify(req.token, config.secret_key, ( err, userData ) => 
         {
             if(err)
             {
@@ -97,7 +98,7 @@ response object: sends a json object of type { "comment": object }. If error, th
 exports.updateComment = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.put('/comment', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', ( err, userData ) => 
+        jwtInstance.verify(req.token, config.secret_key, ( err, userData ) => 
         {
             if(err)
             {
@@ -132,7 +133,7 @@ response object: sends a json object of type { "comment": object }. If error, th
 exports.deleteComment = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.delete('/comment', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', ( err, userData ) => 
+        jwtInstance.verify(req.token, config.secret_key, ( err, userData ) => 
         {
             if(err)
             {
@@ -166,7 +167,7 @@ response object: sends a json object of type { "comment": object }. If error, th
 exports.getComment = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.get('/comment', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', ( err, userData ) => 
+        jwtInstance.verify(req.token, config.secret_key, ( err, userData ) => 
         {
             if(err)
             {
@@ -200,7 +201,7 @@ response object: sends a json object of type { "comment": array_of_objects }. If
 exports.getAllComments = function(expressInstance, jwtInstance, verifyToken)
 {
     expressInstance.get('/comment/all-comments', verifyToken, (req, res) => {
-        jwtInstance.verify(req.token, 'secretkey', (err, userData) => 
+        jwtInstance.verify(req.token, config.secret_key, (err, userData) => 
         {
             if(err)
             {
